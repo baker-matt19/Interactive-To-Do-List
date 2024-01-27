@@ -3,18 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Interactive To-Do List</title>
 </head>
 <body>
-    <div class="container">
-        <h1>To-Do List</h1>
-        <div id="task-container">
-            <input type="text" id="new-task" placeholder="Add a new task">
-            <button onclick="addTask()">Add</button>
-            <ul id="task-list"></ul>
+    <div id="todo-container">
+        <button class="btn" onclick="openModal()">Add Task</button>
+        <ul id="task-list"></ul>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <label for="taskTitle">Task Title:</label>
+            <input type="text" id="taskTitle" required>
+            <label for="taskDate">Task Date:</label>
+            <input type="date" id="taskDate" required>
+            <button class="btn" onclick="addTask()">Add</button>
+            <button class="btn" onclick="closeModal()">Cancel</button>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Edit Task Modal -->
+    <div id="editTaskModal" class="modal">
+        <div class="modal-content">
+            <label for="editTaskTitle">Task Title:</label>
+            <input type="text" id="editTaskTitle" required>
+            <label for="editTaskDate">Task Date:</label>
+            <input type="date" id="editTaskDate" required>
+            <button id="saveChangesButton" class="btn" onclick="saveChanges()">Save Changes</button>
+            <button class="btn" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
